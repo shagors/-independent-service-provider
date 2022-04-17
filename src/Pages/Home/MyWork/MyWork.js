@@ -6,7 +6,7 @@ const MyWork = ({work}) => {
     const {id, name, img, price, description} = work;
     const navigate = useNavigate();
     const navigateToWork = id => {
-        navigate(`/services/${id}`);
+        navigate('/checkout');
     }
 
     return (
