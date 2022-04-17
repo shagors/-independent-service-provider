@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     useSignInWithEmailAndPassword
 } from 'react-firebase-hooks/auth';
@@ -6,28 +6,59 @@ import auth from '../../../firebase.init';
 import './Login.css'
 
 const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [userInfo, setUserInfo] = useState({
+        email: "",
+        password: "",
+    });
+    const [errors, setErrors] = useState({
+        emailError: "",
+        passwordError: "",
+        othersError: "",
+    });
 
     const [
         signInWithEmailAndPassword,
         user,
         loading,
-        error,
+        hookError,
     ] = useSignInWithEmailAndPassword(auth);
 
     const handleEmailChange = e => {
-        setEmail(e.target.value)
+        const emailRegex = /\S+@\S+\.\S+/;
+        const validEmail = emailRegex.test(e.target.value);
+        if(validEmail){
+            setUserInfo({...userInfo, email: e.target.value});
+            setErrors({...errors, emailError: ""});
+        }
+        else{
+            setErrors({...errors, emailError: 'Invalid Email'});
+            setUserInfo({...userInfo, email: ""});
+        }
     }
 
     const handlePasswordChange = e => {
-        setPassword(e.target.value)
+        const passwordRegex = /.{6,}/;
+        const validPassword = passwordRegex.test(e.target.value);
+        if(validPassword){
+            setUserInfo({...userInfo, password: e.target.value});
+            setErrors({...errors, passwordError: ""});
+        }
+        else{
+            setErrors({...errors, passwordError: 'Password minimum 6 characters'});
+            setUserInfo({...userInfo, password: ""});
+        }
     }
 
     const handleLogin = e => {
         e.preventDefault();
-        
+        signInWithEmailAndPassword(userInfo.email, userInfo.password);
     }
+
+    useEffect( () => {
+        if(hookError){
+            setErrors({...errors, othersError: ''});
+        }
+    } ,[])
 
 
     return (
@@ -35,7 +66,9 @@ const Login = () => {
             <div className="login-title">LogIn</div>
             <form className='login-form' onSubmit={handleLogin}>
                 <input type="email" name="" placeholder='Your Email' onChange={handleEmailChange} required/>
+                {errors?.emailError && <p className='error-message'>{errors.emailError}</p>}
                 <input type="password" name="" placeholder='type password' onChange={handlePasswordChange} required/>
+                {errors?.passwordError && <p className='error-message'>{errors.passwordError}</p>}
                 <button>Login</button>
             </form>
         </div>
