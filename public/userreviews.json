@@ -1,0 +1,23 @@
+[
+  {
+    "id": "625c190752fb9ec1b6fd6b37",
+    "name": "Adam Smith",
+    "ratings": "4.5",
+    "picture": "https://img.freepik.com/free-photo/young-handsome-man-with-beard-isolated-keeping-arms-crossed-frontal-position_1368-132662.jpg?w=2000",
+    "comment": "about my page write 50 words"
+  },
+  {
+    "id": "625c1907d47f03825beacecf",
+    "name": "John Butler",
+    "ratings": "5.00",
+    "picture": "https://img.freepik.com/free-photo/young-handsome-man-with-beard-isolated-keeping-arms-crossed-frontal-position_1368-132662.jpg?w=2000",
+    "comment": "about my page write 50 words"
+  },
+  {
+    "id": "625c1907a8278456eb44216a",
+    "name": "Harry Potter",
+    "ratings": "4.8",
+    "picture": "https://img.freepik.com/free-photo/young-handsome-man-with-beard-isolated-keeping-arms-crossed-frontal-position_1368-132662.jpg?w=2000",
+    "comment": "about my page write 50 words"
+  }
+]

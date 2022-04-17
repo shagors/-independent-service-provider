@@ -1,0 +1,14 @@
+.review{
+    border: 1px solid lightcyan;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+    border-radius: 25px;
+    background: #b7bbac;
+    box-shadow:  20px 20px 36px #f0f3e4,
+             -20px -20px 36px #f6f6f6;
+}
+.review img {
+    width: 50px;
+    height: 50px;
+}

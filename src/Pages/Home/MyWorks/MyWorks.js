@@ -4,7 +4,6 @@ import './MyWorks.css'
 
 const MyWorks = () => {
     const [works, setWorks] = useState();
-    console.log(works);
 
     useEffect( () => {
         fetch('services.json')
