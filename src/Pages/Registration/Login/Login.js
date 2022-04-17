@@ -4,6 +4,12 @@ import {
 } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import './Login.css'
+ import {
+     ToastContainer,
+     toast
+ } from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [userInfo, setUserInfo] = useState({
@@ -56,9 +62,19 @@ const Login = () => {
 
     useEffect( () => {
         if(hookError){
-            setErrors({...errors, othersError: ''});
+            switch(hookError?.code){
+                case "auth/invalid-email":
+                    toast("Invalid email provided, please provide a valid email");
+                    break;
+                
+                case "auth/invalid-password":
+                    toast("Wrong password. Intruder!!")
+                    break;
+                default:
+                    toast("something went wrong")
+            }
         }
-    } ,[])
+    } ,[hookError])
 
 
     return (
@@ -70,6 +86,8 @@ const Login = () => {
                 <input type="password" name="" placeholder='type password' onChange={handlePasswordChange} required/>
                 {errors?.passwordError && <p className='error-message'>{errors.passwordError}</p>}
                 <button>Login</button>
+                <ToastContainer />
+                <p>Don't have an account ? <Link to='/signup' >Sign up hear</Link> </p>
             </form>
         </div>
     );
