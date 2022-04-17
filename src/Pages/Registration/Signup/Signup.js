@@ -8,6 +8,7 @@ import auth from '../../../firebase.init';
      toast
  } from 'react-toastify';
  import 'react-toastify/dist/ReactToastify.css';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const [userInfo, setUserInfo] = useState({
@@ -84,7 +85,17 @@ const Signup = () => {
                     toast("something went wrong")
             }
         }
-    } ,[hookError])
+    } ,[hookError]);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathanme || '/';
+
+    useEffect( () => {
+        if(user){
+            navigate(from);
+        }
+    } ,[user]);
 
 
     return (
