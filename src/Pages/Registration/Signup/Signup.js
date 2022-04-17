@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-    useCreateUserWithEmailAndPassword,
+    useCreateUserWithEmailAndPassword, useSignInWithGoogle,
 } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
  import {
@@ -9,6 +9,7 @@ import auth from '../../../firebase.init';
  } from 'react-toastify';
  import 'react-toastify/dist/ReactToastify.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+import google from '../../../images/social/google.png'
 
 const Signup = () => {
     const [userInfo, setUserInfo] = useState({
@@ -29,6 +30,8 @@ const Signup = () => {
         loading,
         hookError,
     ] = useCreateUserWithEmailAndPassword(auth);
+
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 
 
     const handleEmailChange = e => {
@@ -73,8 +76,9 @@ const Signup = () => {
     }
 
     useEffect( () => {
-        if(hookError){
-            switch(hookError?.code){
+        const error = hookError || googleError;
+        if(error){
+            switch(error?.code){
                 case "auth/invalid-email":
                     toast("Invalid email provided, please provide a valid email");
                     break;
@@ -83,20 +87,20 @@ const Signup = () => {
                     toast("Wrong password. Intruder!!")
                     break;
                 default:
-                    toast("something went wrong")
+                    toast("your email or password wrong")
             }
         }
-    } ,[hookError]);
+    } ,[hookError, googleError]);
 
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
     useEffect( () => {
-        if(user){
+        if(user || googleUser){
             navigate(from);
         }
-    } ,[user]);
+    } ,[user, googleUser]);
 
 
     return (
@@ -110,8 +114,15 @@ const Signup = () => {
                 <input type="password" name="" placeholder='confirm password' onChange={handleConfirmPasswordChange} required/>
                 {errors?.confirmPassError && <p className='error-message'>{errors.confirmPassError}</p>}
                 <button>Signup</button>
-                <ToastContainer />
+                <ToastContainer position="top-center" autoClose={3000} />
             </form>
+
+            <div className='d-flex align-items-center'>
+                <div style={{height: '1px'}} className="w-50 bg-dark"></div>
+                <p className='mt-2 px-2'>Or</p>
+                <div style={{height: '1px'}} className="w-50 bg-dark"></div>
+            </div>
+            <button onClick={()=>signInWithGoogle()}><img src={google} alt="" /> Google Sign in</button>
         </div>
     );
 };

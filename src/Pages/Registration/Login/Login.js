@@ -76,7 +76,7 @@ const Login = () => {
                     toast("Wrong password. Intruder!!")
                     break;
                 default:
-                    toast("something went wrong")
+                    toast("Your email or password wrong")
             }
         }
     } ,[hookError, googleError]);
@@ -101,10 +101,14 @@ const Login = () => {
                 <input type="password" name="" placeholder='type password' onChange={handlePasswordChange} required/>
                 {errors?.passwordError && <p className='error-message'>{errors.passwordError}</p>}
                 <button>Login</button>
-                <ToastContainer />
+                <ToastContainer position="top-center" autoClose={3000} />
                 <p className='my-2'>Don't have an account ? <Link to='/signup' >Sign up hear</Link> </p>
             </form>
-
+            <div className='d-flex align-items-center'>
+                <div style={{height: '1px'}} className="w-50 bg-dark"></div>
+                <p className='mt-2 px-2'>Or</p>
+                <div style={{height: '1px'}} className="w-50 bg-dark"></div>
+            </div>
             <button onClick={()=>signInWithGoogle()}><img src={google} alt="" /> Google Sign in</button>
         </div>
     );
