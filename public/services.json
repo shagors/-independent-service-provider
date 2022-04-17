@@ -1,44 +1,44 @@
 [
     {
         "id": 1,
-        "name": "ENGINE DIAGNOSTIC",
-        "price": "300",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "name": "Shoe Modeling",
+        "price": "1300",
+        "description": "Shoe modeling for all kinds of shoes. Dynamic work and color correction and all kinds of works include of this charge",
         "img": "https://i.ibb.co/59561yj/paul-gaudriault-a-QH9-MAAVNI-unsplash.jpg"
     },
     {
         "id": 2,
-        "name": "WHEEL ALIGNMENT",
-        "price": "100",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "name": "Face Wash",
+        "price": "1000",
+        "description": "Facewash is natural images you see that imag is naturak and cool and all kinds of works include of this charge",
         "img": "https://i.ibb.co/sW4H2nJ/cierra-henderson-LWIQp-0-b98-unsplash.jpg"
     },
     {
         "id": 3,
-        "name": "OIL CHANGING",
-        "price": "150",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "name": "Juice",
+        "price": "1200",
+        "description": "This juice is only jar we modified and creative image for that product and all kinds of works include of this charge",
         "img": "https://i.ibb.co/MNMBNbK/tyler-nix-JN7-JJo-Ldvjs-unsplash.jpg"
     },
     {
         "id": 4,
-        "name": "BRAKE REPARING",
-        "price": "180",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "name": "Watch",
+        "price": "1800",
+        "description": "Watch is extra luxary products and its represent best way and it needs color and contrast solution include of this charge",
         "img": "https://i.ibb.co/5BtH1hP/pat-taylor-12-V36-G17-Ib-Q-unsplash.jpg"
     },
     {
         "id": 5,
-        "name": "WASH AND GLASSING",
-        "price": "100",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "name": "Food",
+        "price": "1300",
+        "description": "Food is natural and freshness. We think its value and make it creative for poster for customer",
         "img": "https://i.ibb.co/vB8VDrf/mae-mu-I7-A-p-HLc-QK8-unsplash.jpg"
     },
     {
         "id": 6,
-        "name": "COMPLETE ANALYSIS",
-        "price": "300",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa",
+        "name": "Fashion",
+        "price": "2000",
+        "description": "All provides all kinds of fashion picture so you can trust me for great images for your products",
         "img": "https://i.pinimg.com/originals/50/53/c9/5053c9c8a9684cb3c61dec844d994e50.jpg"
     }
 ]
