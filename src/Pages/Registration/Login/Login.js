@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
-    useSignInWithEmailAndPassword
+    useAuthState,
+    useSignInWithEmailAndPassword, useSignInWithGoogle
 } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import './Login.css'
@@ -10,6 +11,7 @@ import './Login.css'
  } from 'react-toastify';
  import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import google from '../../../images/social/google.png'
 
 const Login = () => {
     const [userInfo, setUserInfo] = useState({
@@ -28,6 +30,8 @@ const Login = () => {
         loading,
         hookError,
     ] = useSignInWithEmailAndPassword(auth);
+
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 
     const handleEmailChange = e => {
         const emailRegex = /\S+@\S+\.\S+/;
@@ -61,8 +65,9 @@ const Login = () => {
     }
 
     useEffect( () => {
-        if(hookError){
-            switch(hookError?.code){
+        const error = hookError || googleError;
+        if(error){
+            switch(error?.code){
                 case "auth/invalid-email":
                     toast("Invalid email provided, please provide a valid email");
                     break;
@@ -74,17 +79,17 @@ const Login = () => {
                     toast("something went wrong")
             }
         }
-    } ,[hookError])
+    } ,[hookError, googleError]);
 
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
     useEffect( () => {
-        if(user){
+        if(user || googleUser){
             navigate(from);
         }
-    } ,[user]);
+    } ,[user, googleUser]);
 
 
     return (
@@ -97,8 +102,10 @@ const Login = () => {
                 {errors?.passwordError && <p className='error-message'>{errors.passwordError}</p>}
                 <button>Login</button>
                 <ToastContainer />
-                <p>Don't have an account ? <Link to='/signup' >Sign up hear</Link> </p>
+                <p className='my-2'>Don't have an account ? <Link to='/signup' >Sign up hear</Link> </p>
             </form>
+
+            <button onClick={()=>signInWithGoogle()}><img src={google} alt="" /> Google Sign in</button>
         </div>
     );
 };

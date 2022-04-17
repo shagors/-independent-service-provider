@@ -30,6 +30,7 @@ const Signup = () => {
         hookError,
     ] = useCreateUserWithEmailAndPassword(auth);
 
+
     const handleEmailChange = e => {
         const emailRegex = /\S+@\S+\.\S+/;
         const validEmail = emailRegex.test(e.target.value);
