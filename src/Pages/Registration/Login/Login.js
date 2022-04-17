@@ -9,7 +9,7 @@ import './Login.css'
      toast
  } from 'react-toastify';
  import 'react-toastify/dist/ReactToastify.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [userInfo, setUserInfo] = useState({
@@ -75,6 +75,16 @@ const Login = () => {
             }
         }
     } ,[hookError])
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
+    useEffect( () => {
+        if(user){
+            navigate(from);
+        }
+    } ,[user]);
 
 
     return (

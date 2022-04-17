@@ -89,7 +89,7 @@ const Signup = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathanme || '/';
+    const from = location.state?.from?.pathname || '/';
 
     useEffect( () => {
         if(user){
