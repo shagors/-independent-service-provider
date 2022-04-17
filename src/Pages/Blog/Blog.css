@@ -1,0 +1,15 @@
+.blog{
+    border: 1px solid lightcyan;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+    border-radius: 25px;
+    font-size: 18px;
+    background: #e0e0e0;
+    box-shadow:  20px 20px 36px #b6b6b6,
+             -20px -20px 36px #f6f6f6;
+}
+
+.blog:hover{
+    background-color: #9fada9;
+}
