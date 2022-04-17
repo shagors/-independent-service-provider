@@ -29,7 +29,7 @@ const Signup = () => {
         user,
         loading,
         hookError,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
 
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 

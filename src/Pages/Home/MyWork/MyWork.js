@@ -12,7 +12,7 @@ const MyWork = ({work}) => {
     return (
         <div>
             <div className="work">
-                <img src={img} alt="" />
+                <img style={{height: '350px'}} src={img} alt="" />
                 <h2 className=''>{name}</h2>
                 <p className=''>${price}</p>
                 <p>{description}</p>

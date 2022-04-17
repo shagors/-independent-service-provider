@@ -10,7 +10,16 @@ const Checkout = () => {
         <div className='container checkout-container'>
             <Form className=''>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Control type="text" placeholder="type your name" />
+                    <Form.Control type="text" placeholder="your name" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Control type="text" placeholder="your phone number" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Control type="email" placeholder="your email" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Control type="text" placeholder="your address" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                     <Form.Control as="textarea" rows={6} placeholder='share me your thought and which package you want to ?'/>
