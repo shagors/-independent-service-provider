@@ -13,7 +13,9 @@ import './Login.css'
  import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import google from '../../../images/social/google.png'
-import { sendPasswordResetEmail } from 'firebase/auth';
+import {
+    FcGoogle
+} from 'react-icons/fc';
 
 const Login = () => {
     const [userInfo, setUserInfo] = useState({
@@ -116,7 +118,7 @@ const Login = () => {
                 <p className='mt-2 px-2'>Or</p>
                 <div style={{height: '1px'}} className="w-50 bg-dark"></div>
             </div>
-            <button onClick={()=>signInWithGoogle()}><img src={google} alt="" /> Google Sign in</button>
+            <a className='btn btn-primary d-flex justify-content-center' onClick={()=>signInWithGoogle()}> <FcGoogle className='mx-2' style={{fontSize: '25px'}}/> Google Sign in</a>
         </div>
     );
 };

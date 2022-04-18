@@ -11,6 +11,20 @@
              -20px -20px 60px #e7dee1;
 }
 
+.login-container > a{
+   color: white;
+    background: #1da1f2;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 900;
+    box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+    transition: 0.5s;
+}
+.login-container > a:hover {
+    box-shadow: none;
+}
+
 
 .login-title {
     text-align: center;
