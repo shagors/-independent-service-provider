@@ -15,3 +15,11 @@ This project's name [SpotLight Studio](https://github.com/facebook/create-react-
 
 ## Technology what I use build this website
 
+* This site is Fully develop by React
+* React router
+* Firebase
+* React firebase Hook
+* React Bootstrap
+* React Icons
+* CSS
+
