@@ -13,7 +13,7 @@
     transition: width 2s, height 2s, transform 5s;
 }
 .work-img:hover{
-    width: 280px;
+    width: 250px;
     height: 280px;
     transform: rotate(45deg);
 }

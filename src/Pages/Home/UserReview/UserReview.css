@@ -8,6 +8,14 @@
     box-shadow:  20px 20px 36px #f0f3e4,
              -20px -20px 36px #f6f6f6;
 }
+.review:hover {
+    background-color: #bfce97;
+    border-radius: 100px;
+    width: 350px;
+    height: 250px;
+    box-shadow:  30px 30px 60px #7d7d7d,
+             -30px -30px 60px #ffffff;
+}
 .review img {
     width: 50px;
     height: 50px;
