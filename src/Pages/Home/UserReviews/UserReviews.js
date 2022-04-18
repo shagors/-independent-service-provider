@@ -4,7 +4,6 @@ import './UserReviews.css'
 
 const UserReviews = () => {
     const [userReviews, setUserReviews] = useState();
-    console.log(userReviews);
 
     useEffect(() => {
         fetch('userreviews.json')

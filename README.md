@@ -1,6 +1,6 @@
 # SpotLight Studio
 
-This project's name [SpotLight Studio](https://github.com/facebook/create-react-app).
+This project's name [SpotLight Studio](https://spot-light-studio.web.app/).
 
 ## What Special Features My site 
 
