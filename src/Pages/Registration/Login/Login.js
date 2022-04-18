@@ -12,7 +12,6 @@ import './Login.css'
  } from 'react-toastify';
  import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import google from '../../../images/social/google.png'
 import {
     FcGoogle
 } from 'react-icons/fc';
@@ -106,7 +105,7 @@ const Login = () => {
                 <input type="password" name="" placeholder='type password' onChange={handlePasswordChange} required/>
                 {errors?.passwordError && <p className='error-message'>{errors.passwordError}</p>}
                 <button>Login</button>
-                <ToastContainer position="top-center" autoClose={5000} />
+                <ToastContainer position="top-center" />
                 <p className='my-2'>Don't have an account ? <Link className='text-decoration-none' to='/signup'>Sign up hear</Link> </p>
             </form>
                 <button onClick={async () => {

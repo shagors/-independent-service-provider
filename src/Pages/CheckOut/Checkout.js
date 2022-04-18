@@ -1,14 +1,16 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
+import { toast, ToastContainer } from 'react-toastify';
 import './Checkout.css'
 
 const Checkout = () => {
-    const handleButtonSend = () => {
-
+    const handleButtonSend = (e) => {
+        e.preventDefault();
+        toast('Thanks for booking')
     }
     return (
         <div className='container checkout-container'>
-            <Form className=''>
+            <Form onSubmit={handleButtonSend}>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Control type="text" placeholder="your name" />
                 </Form.Group>
@@ -36,6 +38,7 @@ const Checkout = () => {
                     <span>Send me mail</span>
                 </button>
             </Form>
+            <ToastContainer position='top-center'/>
         </div>
     );
 };
