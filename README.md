@@ -14,3 +14,8 @@ Markup : * Your blogs you can write and share your thoughts
 Markup : * About me page
 
 ## Technology what I use build this website
+
+ Markup : * Bullet list
+              * Nested bullet
+                  * Sub-nested bullet etc
+          * Bullet list item 2
