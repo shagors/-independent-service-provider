@@ -35,7 +35,7 @@ const Checkout = () => {
                         </svg>
                         </div>
                     </div>
-                    <span>Send me mail</span>
+                    <span>Send me Booking</span>
                 </button>
             </Form>
             <ToastContainer position='top-center'/>

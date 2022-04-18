@@ -8,12 +8,12 @@ import {getAuth} from 'firebase/auth'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBtpdceFN5BkBShACSuQUVTit1JP1IH4Dg",
-    authDomain: "spot-light-studio.firebaseapp.com",
-    projectId: "spot-light-studio",
-    storageBucket: "spot-light-studio.appspot.com",
-    messagingSenderId: "173232766328",
-    appId: "1:173232766328:web:11e72a205fbc61cdc11c8d"
+    apiKey:process.env.REACT_APP_apiKey,
+    authDomain:process.env.REACT_APP_authDomain,
+    projectId:process.env.REACT_APP_projectId,
+    storageBucket:process.env.REACT_APP_storageBucket,
+    messagingSenderId:process.env.REACT_APP_messagingSenderId,
+    appId:process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase
