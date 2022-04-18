@@ -9,6 +9,7 @@ import auth from '../../../firebase.init';
  } from 'react-toastify';
  import 'react-toastify/dist/ReactToastify.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+import './Signup.css'
 import google from '../../../images/social/google.png'
 
 const Signup = () => {
@@ -70,9 +71,10 @@ const Signup = () => {
         }
     }
 
-    const handleLogin = e => {
+    const handleSignup = e => {
         e.preventDefault();
         createUserWithEmailAndPassword(userInfo.email, userInfo.password, userInfo.confirmPass);
+        toast('mail verification send');
     }
 
     useEffect( () => {
@@ -81,10 +83,6 @@ const Signup = () => {
             switch(error?.code){
                 case "auth/invalid-email":
                     toast("Invalid email provided, please provide a valid email");
-                    break;
-                
-                case "auth/invalid-password":
-                    toast("Wrong password. Intruder!!")
                     break;
                 default:
                     toast("your email or password wrong")
@@ -104,9 +102,9 @@ const Signup = () => {
 
 
     return (
-        <div className='login-container'>
-            <div className="login-title">SignUp</div>
-            <form className='login-form' onSubmit={handleLogin}>
+        <div className='signup-container'>
+            <div className="signup-title">SignUp</div>
+            <form className='signup-form' onSubmit={handleSignup}>
                 <input type="email" name="" placeholder='Your Email' onChange={handleEmailChange} required/>
                 {errors?.emailError && <p className='error-message'>{errors.emailError}</p>}
                 <input type="password" name="" placeholder='type password' onChange={handlePasswordChange} required/>
@@ -114,7 +112,7 @@ const Signup = () => {
                 <input type="password" name="" placeholder='confirm password' onChange={handleConfirmPasswordChange} required/>
                 {errors?.confirmPassError && <p className='error-message'>{errors.confirmPassError}</p>}
                 <button>Signup</button>
-                <ToastContainer position="top-center" autoClose={3000} />
+                <ToastContainer position="top-center" autoClose={5000} />
             </form>
 
             <div className='d-flex align-items-center'>

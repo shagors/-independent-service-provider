@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
     useAuthState,
+    useSendPasswordResetEmail,
     useSignInWithEmailAndPassword, useSignInWithGoogle
 } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
@@ -12,6 +13,7 @@ import './Login.css'
  import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import google from '../../../images/social/google.png'
+import { sendEmailVerification, sendPasswordResetEmail } from 'firebase/auth';
 
 const Login = () => {
     const [userInfo, setUserInfo] = useState({
@@ -32,6 +34,8 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+
+    const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth, userInfo.email);
 
     const handleEmailChange = e => {
         const emailRegex = /\S+@\S+\.\S+/;
@@ -62,6 +66,7 @@ const Login = () => {
     const handleLogin = e => {
         e.preventDefault();
         signInWithEmailAndPassword(userInfo.email, userInfo.password);
+        toast('Successfully Login');
     }
 
     useEffect( () => {
@@ -71,7 +76,6 @@ const Login = () => {
                 case "auth/invalid-email":
                     toast("Invalid email provided, please provide a valid email");
                     break;
-                
                 case "auth/invalid-password":
                     toast("Wrong password. Intruder!!")
                     break;
@@ -101,9 +105,13 @@ const Login = () => {
                 <input type="password" name="" placeholder='type password' onChange={handlePasswordChange} required/>
                 {errors?.passwordError && <p className='error-message'>{errors.passwordError}</p>}
                 <button>Login</button>
-                <ToastContainer position="top-center" autoClose={3000} />
-                <p className='my-2'>Don't have an account ? <Link to='/signup' >Sign up hear</Link> </p>
+                <ToastContainer position="top-center" autoClose={5000} />
+                <p className='my-2'>Don't have an account ? <Link className='text-decoration-none' to='/signup'>Sign up hear</Link> </p>
             </form>
+                <button onClick={async () => {
+                    await sendPasswordResetEmail(userInfo.email);
+                    toast('password reset email send');
+                    }}>Forget Password</button>
             <div className='d-flex align-items-center'>
                 <div style={{height: '1px'}} className="w-50 bg-dark"></div>
                 <p className='mt-2 px-2'>Or</p>

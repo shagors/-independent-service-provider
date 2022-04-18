@@ -13,16 +13,16 @@ const Checkout = () => {
                     <Form.Control type="text" placeholder="your name" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Control type="text" placeholder="your phone number" />
+                    <Form.Control type="number" placeholder="your phone number" required/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Control type="email" placeholder="your email" />
+                    <Form.Control type="email" placeholder="your email" required/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Control type="text" placeholder="your address" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Control as="textarea" rows={6} placeholder='share me your thought and which package you want to ?'/>
+                    <Form.Control as="textarea" rows={6} placeholder='share me your thought and which package you want to ?' required/>
                 </Form.Group>
                 <button>
                     <div class="svg-wrapper-1">
