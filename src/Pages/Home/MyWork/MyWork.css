@@ -8,8 +8,14 @@
     box-shadow:  20px 20px 36px #b6b6b6,
              -20px -20px 36px #f6f6f6;
 }
-.work img{
+.work-img{
     width: 330px;
+    transition: width 2s, height 2s, transform 5s;
+}
+.work-img:hover{
+    width: 280px;
+    height: 280px;
+    transform: rotate(45deg);
 }
 
 .cta {
