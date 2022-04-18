@@ -14,8 +14,7 @@
 }
 .work-img:hover{
     width: 250px;
-    height: 280px;
-    transform: rotate(45deg);
+    transform: rotate(70deg);
 }
 
 .cta {

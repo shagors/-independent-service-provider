@@ -13,7 +13,7 @@ import './Login.css'
  import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import google from '../../../images/social/google.png'
-import { sendEmailVerification, sendPasswordResetEmail } from 'firebase/auth';
+import { sendPasswordResetEmail } from 'firebase/auth';
 
 const Login = () => {
     const [userInfo, setUserInfo] = useState({
@@ -66,7 +66,6 @@ const Login = () => {
     const handleLogin = e => {
         e.preventDefault();
         signInWithEmailAndPassword(userInfo.email, userInfo.password);
-        toast('Successfully Login');
     }
 
     useEffect( () => {

@@ -66,3 +66,9 @@ button:active {
  }
 }
 
+@media only screen and (max-width: 576px) {
+    .checkout-container{
+        width: 350px;
+    }
+}
+
